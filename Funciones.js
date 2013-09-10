@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 
 /*Sonido aleatorio*/
-    var numImag = Math.floor(Math.random() * (4)) + 1; 
+    var numImag = Math.floor(Math.random() * (4)); 
     var contador = 0;
     var contador2 = 0;
 
@@ -24,105 +24,126 @@ $(document).ready(function () {
     function MalHecho() {
     contador++;
 
-    if (contador==1) {
-    $("div").fadeOut(1000);
-    $("body").append("<img id='mal' src='fotos/mal.jpg' alt='Respuesta incorrecta' >"); /*Añade la imagen del Smiley 'mal'*/
-    $("#mal").hide(); /*Oculta la imagen añadida en la etiqueta anterior para que no aparezca abruptamente*/
-    $("#mal:hidden").delay(1500).fadeIn(1500); /*Hace aparecer la imagen de 'mal' cuando todas las div han 
-                                               desaparecido y poco a poco para mejorarlo estéticamente*/        
-    $("img").click(function(){
-        $("#mal").fadeOut(1000);
-        $("div:hidden").delay(1500).fadeIn(1500);
-    });
-    };
+        if (contador==1) {
+            $("div").fadeOut(1000);
+            $("body").append("<img id='mal' src='fotos/mal.jpg' alt='Respuesta incorrecta' >"); /*Añade la imagen del Smiley 'mal'*/
+            $("#mal").hide(); /*Oculta la imagen añadida en la etiqueta anterior para que no aparezca abruptamente*/
+            $("#mal:hidden").delay(1500).fadeIn(1500); /*Hace aparecer la imagen de 'mal' cuando todas las div han 
+                                                       desaparecido y poco a poco para mejorarlo estéticamente*/        
+            $("img").click(function(){
+                $("#mal").fadeOut(1000);                  //Al hacer click sobre el emoticono de "mal" la oculta y hace aparecer 
+                $("div:hidden").delay(1500).fadeIn(1500); //las imagenes anteriores.
+            });
+        };
 
-    if (contador != 1){
-        $("div").fadeOut(1000);
-        $("#mal:hidden").delay(1500).fadeIn(1500);
-    };
+        if (contador != 1){
+            $("div").fadeOut(1000);
+            $("#mal:hidden").delay(1500).fadeIn(1500);
+        };
     
     }
 
-
-/*Evento hacer sonar audio*/
-    $("#audio").click(function() {
-        contador2++;
-
-        if (contador2 == 1) {
-
-            if (numImag == 1) {
-        	   $("#audio").append("<audio src= sonidos/gallo.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-               
-        	   $("#div4").click(function(){
-                BienHecho();
-               });
-               $("#div1").click(function(){
-                MalHecho();
-               });
-               $("#div2").click(function(){
-                MalHecho();
-               });
-               $("#div3").click(function(){
-                MalHecho();
-               });
-
-            };
-            if (numImag == 2) {
-                $("#audio").append("<audio src= sonidos/vaca.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-                
-                $("#div3").click(function () {
-                    BienHecho();
-                });
-                $("#div1").click(function(){
-                MalHecho();
-                });
-                $("#div2").click(function(){
-                MalHecho();
-                });
-                $("#div4").click(function(){
-                MalHecho();
-                });
-            };
-            if (numImag == 3) {
-                $("#audio").append("<audio src= sonidos/cerdo.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-                
-                $("#div1").click(function(){
-                    BienHecho();
-                });
-                $("#div4").click(function(){
-                MalHecho();
-                });
-                $("#div2").click(function(){
-                MalHecho();
-                });
-                $("#div3").click(function(){
-                MalHecho();
-                });
-            };
-            if (numImag == 4) {
-                $("#audio").append("<audio src= sonidos/oveja.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-                
-                $("#div2").click(function(){
-                    BienHecho();
-                });
-                $("#div1").click(function(){
-                MalHecho();
-                });
-                $("#div4").click(function(){
-                MalHecho();
-                });
-                $("#div3").click(function(){
-                MalHecho();
-                });
-            };
-
-        	$("div:hidden").fadeIn(1500); /*Hace aparecer las div ocultas*/
-        	$("#contenedor").css("margin-top", "40px"); /*Propiedad CSS para que, después del click, el pulsador se mantenga en su sitio*/
-        };
+    $('#audio').click(function(){
+        
+        $('audio').get(numImag).play()
+        $("div:hidden").fadeIn(1500); /*Hace aparecer las div ocultas*/
+        $("#contenedor").css("margin-top", "40px"); /*Propiedad CSS para que, después del click, el pulsador se mantenga en su sitio*/
     });
-
-   
-    
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Evento hacer sonar audio*/
+    // $("#audio").click(function() {
+    //     contador2++;
+
+    //     if (contador2 == 1) {
+
+    //         if (numImag == 1) {
+    //         $("#audio").append("<audio src= sonidos/gallo.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
+               
+    //         $("#div4").click(function(){
+    //             BienHecho();
+    //            });
+    //            $("#div1").click(function(){
+    //             MalHecho();
+    //            });
+    //            $("#div2").click(function(){
+    //             MalHecho();
+    //            });
+    //            $("#div3").click(function(){
+    //             MalHecho();
+    //            });
+
+    //         };
+    //         if (numImag == 2) {
+    //             $("#audio").append("<audio src= sonidos/vaca.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
+                
+    //             $("#div3").click(function () {
+    //                 BienHecho();
+    //             });
+    //             $("#div1").click(function(){
+    //             MalHecho();
+    //             });
+    //             $("#div2").click(function(){
+    //             MalHecho();
+    //             });
+    //             $("#div4").click(function(){
+    //             MalHecho();
+    //             });
+    //         };
+    //         if (numImag == 3) {
+    //             $("#audio").append("<audio src= sonidos/cerdo.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
+                
+    //             $("#div1").click(function(){
+    //                 BienHecho();
+    //             });
+    //             $("#div4").click(function(){
+    //             MalHecho();
+    //             });
+    //             $("#div2").click(function(){
+    //             MalHecho();
+    //             });
+    //             $("#div3").click(function(){
+    //             MalHecho();
+    //             });
+    //         };
+    //         if (numImag == 4) {
+    //             $("#audio").append("<audio src= sonidos/oveja.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
+                
+    //             $("#div2").click(function(){
+    //                 BienHecho();
+    //             });
+    //             $("#div1").click(function(){
+    //             MalHecho();
+    //             });
+    //             $("#div4").click(function(){
+    //             MalHecho();
+    //             });
+    //             $("#div3").click(function(){
+    //             MalHecho();
+    //             });
+    //         };
+
+    //      $("div:hidden").fadeIn(1500); /*Hace aparecer las div ocultas*/
+    //      $("#contenedor").css("margin-top", "40px"); /*Propiedad CSS para que, después del click, el pulsador se mantenga en su sitio*/
+    //     };
+    // });
