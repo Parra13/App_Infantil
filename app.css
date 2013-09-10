@@ -13,11 +13,11 @@ body {
 }
 
 #bien{
-    margin-left: 410px;
+    margin-left: 33%;
 }
 
 #mal{
-    margin-left: 410px;
+    margin-left: 33%;
 
 }
 
@@ -34,17 +34,38 @@ body {
     margin-top: 40px;
 }
 
-#div1 {
-    background-image: url('fotos/cerdo.jpg');
+#gallo {
+    background-image: url('fotos/gallo.jpg');
     width: 200px;
     height: 200px;
-    float: left;
+    float:left;
     display: inline-block;
     border-radius: 10px;
     box-shadow: 4px 4px 6px #777;
 }
 
-#div2 {
+#vaca {
+    background-image: url('fotos/vaca.jpg');
+    width: 200px;
+    height: 200px;
+    float:left;    
+    margin-left: 15px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px #777;
+}
+
+#cerdo {
+    background-image: url('fotos/cerdo.jpg');
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 15px;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px #777;
+}
+
+#oveja {
     background-image: url('fotos/oveja.jpg');
     width: 200px;
     height: 200px;
@@ -55,25 +76,8 @@ body {
        
 }
 
-#div3 {
-    background-image: url('fotos/vaca.jpg');
-    width: 200px;
-    height: 200px;
-    float:left;    
-    margin-left: 15px;
-    border-radius: 10px;
-    box-shadow: 4px 4px 6px #777;
-}
 
-#div4 {
-    margin-left: 15px;
-    background-image: url('fotos/gallo.jpg');
-    width: 200px;
-    height: 200px;
-    float:left;
-    display: inline-block;
-    border-radius: 10px;
-    box-shadow: 4px 4px 6px #777;
-}
+
+
 
 

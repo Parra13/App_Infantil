@@ -4,10 +4,10 @@ $(document).ready(function () {
     $("#audio").fadeIn(1000); /*aparecer inmediatamanete al cargar la página (estética)*/
 
 
-/*Sonido aleatorio*/
-    var numImag = Math.floor(Math.random() * (4)); 
+
+    var numImag = Math.floor(Math.random() * (4)); /*Sonido aleatorio*/
     var contador = 0;
-    var contador2 = 0;
+    
 
     function BienHecho() {
     
@@ -43,107 +43,24 @@ $(document).ready(function () {
     
     }
 
-    $('#audio').click(function(){
+    /*Efecto del pulsador*/
+    
+    $('#audio').click(function(){ /*Al hacer click sobre el pulsador rojo activará el audio de un animal y aparecerán las imágenes*/
         
-        $('audio').get(numImag).play()
+        $('audio').get(numImag).play(); /*De todas las etiquetas 'audio' seleccionamos, con el método get(), la que nos interesa, como si fuera un array*/
         $("div:hidden").fadeIn(1500); /*Hace aparecer las div ocultas*/
         $("#contenedor").css("margin-top", "40px"); /*Propiedad CSS para que, después del click, el pulsador se mantenga en su sitio*/
     });
 
+    /*Comprobación imagen seleccionada*/
+    $("#imagenes").children().click(function(){ //Función que se dispara cada vez que pulsemos un 'hijo' de la div 'imagenes'
+        var clase = $(this).attr("class");      //Asigna a la variable 'clase' el valor del atributo class
+        if (clase == numImag) {                 //Compara el valor de la class con el numero aleatorio. En este caso se han hecho coincidir, guarda relación...
+            BienHecho();                        //...con el orden en el que están puestos en el HTML.
+        }
+        else{
+            MalHecho();
+        };
+    });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Evento hacer sonar audio*/
-    // $("#audio").click(function() {
-    //     contador2++;
-
-    //     if (contador2 == 1) {
-
-    //         if (numImag == 1) {
-    //         $("#audio").append("<audio src= sonidos/gallo.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-               
-    //         $("#div4").click(function(){
-    //             BienHecho();
-    //            });
-    //            $("#div1").click(function(){
-    //             MalHecho();
-    //            });
-    //            $("#div2").click(function(){
-    //             MalHecho();
-    //            });
-    //            $("#div3").click(function(){
-    //             MalHecho();
-    //            });
-
-    //         };
-    //         if (numImag == 2) {
-    //             $("#audio").append("<audio src= sonidos/vaca.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-                
-    //             $("#div3").click(function () {
-    //                 BienHecho();
-    //             });
-    //             $("#div1").click(function(){
-    //             MalHecho();
-    //             });
-    //             $("#div2").click(function(){
-    //             MalHecho();
-    //             });
-    //             $("#div4").click(function(){
-    //             MalHecho();
-    //             });
-    //         };
-    //         if (numImag == 3) {
-    //             $("#audio").append("<audio src= sonidos/cerdo.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-                
-    //             $("#div1").click(function(){
-    //                 BienHecho();
-    //             });
-    //             $("#div4").click(function(){
-    //             MalHecho();
-    //             });
-    //             $("#div2").click(function(){
-    //             MalHecho();
-    //             });
-    //             $("#div3").click(function(){
-    //             MalHecho();
-    //             });
-    //         };
-    //         if (numImag == 4) {
-    //             $("#audio").append("<audio src= sonidos/oveja.mp3 autoplay='True' />"); /*Añade la etiqueta audio después de la id indicada*/
-                
-    //             $("#div2").click(function(){
-    //                 BienHecho();
-    //             });
-    //             $("#div1").click(function(){
-    //             MalHecho();
-    //             });
-    //             $("#div4").click(function(){
-    //             MalHecho();
-    //             });
-    //             $("#div3").click(function(){
-    //             MalHecho();
-    //             });
-    //         };
-
-    //      $("div:hidden").fadeIn(1500); /*Hace aparecer las div ocultas*/
-    //      $("#contenedor").css("margin-top", "40px"); /*Propiedad CSS para que, después del click, el pulsador se mantenga en su sitio*/
-    //     };
-    // });
